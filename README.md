@@ -32,7 +32,10 @@ Computes the strongly connected components of a graph using Tarjan's algorithm.
 
 * `adjacencyList` is an array of lists representing the directed edges of the graph
 
-**Returns** An array of arrays representing the partitioning of the vertices in the graph into connected components.
+**Returns** An object containing:
+
+* `components`: an array of arrays representing the partitioning of the vertices in the graph into connected components.
+* `adjacencyList`: an array lists representing the directed edges of the directed acyclic graph between the strongly connected components
 
 ## Credits
 (c) 2013 Mikola Lysenko. MIT License.  Based on the [implementation of Tarjan's algorithm on Wikipedia.](http://en.wikipedia.org/wiki/Tarjan's_strongly_connected_components_algorithm)

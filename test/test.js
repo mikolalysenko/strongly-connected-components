@@ -21,8 +21,7 @@ require("tape")(function(t) {
   // C: 7 -> 7
   // graph on SCCs:
   // B -> A
-  // C -> A
-  // C -> B
+  // C -> A, B
   
   console.log(scc(g))
 
