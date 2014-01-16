@@ -1,7 +1,5 @@
 "use strict"
 
-var assert = require('assert')
-
 module.exports = stronglyConnectedComponents
 
 function stronglyConnectedComponents(adjList) {
