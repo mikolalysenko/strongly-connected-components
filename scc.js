@@ -38,27 +38,23 @@ function stronglyConnectedComponents(adjList) {
       var u = e[i]
       if(index[u] < 0) {
         strongConnect(u)
-        if (lowValue[u] < lowValue[v]) { // Part of the same scc
-          sccLinks[lowValue[u]] = sccLinks[lowValue[u]].concat(sccLinks[lowValue[v]])
-          lowValue[v] = lowValue[u]
-        }
+        lowValue[v] = Math.min(lowValue[u],lowValue[v])|0
       } else if(active[u]) {
-        if (lowValue[u] < lowValue[v]) { // Part of the same scc
-          sccLinks[lowValue[u]] = sccLinks[lowValue[u]].concat(sccLinks[lowValue[v]])
-          lowValue[v] = lowValue[u]
-        }
+        lowValue[v] = Math.min(lowValue[u],lowValue[v])|0
       }
       if (scc[u] >= 0) {
         // Node v is not yet assigned an scc, but once it is that scc can apparently reach scc[u].
-        sccLinks[lowValue[v]].push(scc[u])
+        sccLinks[v].push(scc[u])
       }
     }
     if(lowValue[v] === index[v]) {
       var component = []
+      var links = []
       for(var i=S.length-1; i>=0; --i) {
         var w = S[i]
         active[w] = false
         component.push(w)
+        links.push(sccLinks[w])
         scc[w] = components.length
         if(w === v) {
           S.length = i
@@ -66,7 +62,7 @@ function stronglyConnectedComponents(adjList) {
         }
       }
       components.push(component)
-      sccAdjList.push(sccLinks[index[v]])
+      sccAdjList.push(Array.prototype.concat.apply([], links))
     }
   }
 
