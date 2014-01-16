@@ -36,9 +36,9 @@ function stronglyConnectedComponents(adjList) {
       var u = e[i]
       if(index[u] < 0) {
         strongConnect(u)
-        lowValue[v] = Math.min(lowValue[v],lowValue[u])|0
+        lowValue[v] = Math.min(lowValue[v], lowValue[u])|0
       } else if(active[u]) {
-        lowValue[v] = Math.min(lowValue[v],lowValue[u])|0
+        lowValue[v] = Math.min(lowValue[v], lowValue[u])|0
       }
       if (scc[u] >= 0) {
         // Node v is not yet assigned an scc, but once it is that scc can apparently reach scc[u].
