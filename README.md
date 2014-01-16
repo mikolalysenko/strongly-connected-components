@@ -7,23 +7,18 @@ Given a directed graph, splits it into [strongly connected components](http://en
 ```javascript
 var scc = require("strongly-connected-components")
 
-var edges = [
-  [0,4],
-  [1,0],
-  [2,1],
-  [2,3],
-  [3,2],
-  [4,1],
-  [5,4],
-  [5,6],
-  [6,5],
-  [6,2],
-  [7,7],
-  [7,6],
-  [7,3]
+var adjacencyList = [
+  [4], // 0
+  [0,2], // 1
+  [1,3], // 2
+  [2], // 3
+  [1], // 4
+  [4,6], // 5
+  [5,2], // 6
+  [7,6,3], // 7
 ]
 
-console.log(scc(8, edges))
+console.log(scc(adjacencyList))
 ```
 
 ## Install
@@ -32,11 +27,10 @@ console.log(scc(8, edges))
 
 ## API
 
-### `require("strongly-connected-components")(numVertices, edges)`
+### `require("strongly-connected-components")(adjacencyList)`
 Computes the strongly connected components of a graph using Tarjan's algorithm.
 
-* `numVertices` is the number of vertices in the graph
-* `edges` is an array of pairs representing the directed edges of the graph
+* `adjacencyList` is an array of lists representing the directed edges of the graph
 
 **Returns** An array of arrays representing the partitioning of the vertices in the graph into connected components.
 

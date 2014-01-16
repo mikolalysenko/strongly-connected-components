@@ -2,25 +2,20 @@
 
 module.exports = stronglyConnectedComponents
 
-function stronglyConnectedComponents(numVertices, edges) {
-  var adjList = new Array(numVertices)
+function stronglyConnectedComponents(adjList) {
+  var numVertices = adjList.length;
   var index = new Array(numVertices)
   var lowValue = new Array(numVertices)
   var active = new Array(numVertices)
-
+  
   //Initialize tables
   for(var i=0; i<numVertices; ++i) {
-    adjList[i] = []
     index[i] = -1
     lowValue[i] = 0
     active[i] = false
   }
 
-  //Build adjacency list representation
-  for(var i=0; i<edges.length; ++i) {
-    adjList[edges[i][0]].push(edges[i][1])
-  }
-
+  // The strongConnect function
   var count = 0
   var S = []
   var components = []

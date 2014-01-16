@@ -1,6 +1,6 @@
 {
   "name": "strongly-connected-components",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Computes strongly connected components of a directed graph",
   "main": "scc.js",
   "directories": {
