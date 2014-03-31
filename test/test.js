@@ -23,7 +23,9 @@ require("tape")(function(t) {
   // B -> A
   // C -> A, B
   
-  console.log(scc(g))
+  var sccRet = scc(g)
+  console.log(sccRet)
+  t.equal(sccRet.components.length, 3)
 
   t.end()
 })
